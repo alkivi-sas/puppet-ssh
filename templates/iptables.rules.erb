@@ -1,0 +1,3 @@
+*filter
+-A INPUT -p tcp --dport <%= @port %> -j ACCEPT -m comment --comment "ssh"
+COMMIT
