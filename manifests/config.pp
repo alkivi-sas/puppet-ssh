@@ -11,9 +11,12 @@ class ssh::config () {
     notify  => Class['ssh::service'],
   }
 
-  file { '/etc/iptables.d/10-ssh.rules':
-    content => template('ssh/iptables.rules.erb'),
-    require => Package['alkivi-iptables'],
-    notify  => Service['alkivi-iptables'],
+  if defined(Package['alkivi-iptables'])
+  {
+    file { '/etc/iptables.d/10-ssh.rules':
+      content => template('ssh/iptables.rules.erb'),
+      require => Package['alkivi-iptables'],
+      notify  => Service['alkivi-iptables'],
+    }
   }
 }

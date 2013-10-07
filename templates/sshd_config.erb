@@ -93,3 +93,9 @@ Match address <%= @allowed_extra.join(',') %>
 	PermitRootLogin yes
 <% end %>
 
+# Extra configuration
+<% if @extra_configuration.size %>
+<% @extra_configuration.each do | extraLine | %>
+<%= extraLine %><% end %>
+<% end %>
+

@@ -18,11 +18,12 @@ root login is forbidden by default, so is password authentification
 
 ```puppet
 class { 'ssh':
-  $allowed_extra           = [ '127.0.0.1' ],
-  $port                    = 22,
-  $permit_root             = 'yes,
-  $password_authentication = 'yes,
-  $motd                    = true,
+  allowed_extra           => [ '127.0.0.1' ],
+  port                    => 22,
+  permit_root             => 'yes,
+  password_authentication => 'yes,
+  motd                    => true,
+  extra_configuration     => [],
 }
 ```
 

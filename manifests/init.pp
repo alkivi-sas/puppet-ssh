@@ -7,6 +7,7 @@ class ssh (
   $permit_root             = 'no',
   $password_authentication = 'no',
   $motd                    = true,
+  $extra_configuration     = [],
 ) {
 
   if($motd)
@@ -15,6 +16,7 @@ class ssh (
   }
 
   validate_array($allowed_extra)
+  validate_array($extra_configuration)
   validate_string($port)
   validate_string($permit_root)
   validate_string($password_authentication)
