@@ -7,6 +7,11 @@ class ssh (
   $permit_root             = 'no',
   $password_authentication = 'no',
   $motd                    = true,
+  $verify_reverse_mapping  = 'no',
+  $use_pam                 = 'yes',
+  $challenge_response      = 'no',
+  $permit_empty_passwords  = 'no',
+
   $extra_configuration     = [],
 ) {
 

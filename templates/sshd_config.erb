@@ -40,11 +40,11 @@ HostbasedAuthentication no
 #IgnoreUserKnownHosts yes
 
 # To enable empty passwords, change to yes (NOT RECOMMENDED)
-PermitEmptyPasswords no
+PermitEmptyPasswords <%= @permit_empty_passwords %>
 
 # Change to yes to enable challenge-response passwords (beware issues with
 # some PAM modules and threads)
-ChallengeResponseAuthentication no
+ChallengeResponseAuthentication <%= @challenge_response %>
 
 # Change to no to disable tunnelled clear text passwords
 PasswordAuthentication <%= @password_authentication %>
@@ -86,12 +86,10 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 # If you just want the PAM account and session checks to run without
 # PAM authentication, then enable this but set PasswordAuthentication
 # and ChallengeResponseAuthentication to 'no'.
-UsePAM yes
+UsePAM <%= @use_pam %>
 
-<% if @allowed_extra.size %>
-Match address <%= @allowed_extra.join(',') %>
-	PermitRootLogin yes
-<% end %>
+VerifyReverseMapping <%= @verify_reverse_mapping %>
+
 
 # Extra configuration
 <% if @extra_configuration.size %>
@@ -99,3 +97,7 @@ Match address <%= @allowed_extra.join(',') %>
 <%= extraLine %><% end %>
 <% end %>
 
+<% if @allowed_extra.size %>
+Match address <%= @allowed_extra.join(',') %>
+	PermitRootLogin yes
+<% end %>
