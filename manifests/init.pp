@@ -11,6 +11,7 @@ class ssh (
   $use_pam                 = 'yes',
   $challenge_response      = 'no',
   $permit_empty_passwords  = 'no',
+  $subsystem_sftp          = '/usr/lib/openssh/sftp-server',
 
   $extra_configuration     = [],
 ) {
