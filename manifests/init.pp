@@ -23,7 +23,10 @@ class ssh (
 
   validate_array($allowed_extra)
   validate_array($extra_configuration)
-  validate_string($port)
+  if(! is_integer($port))
+  {
+      fail('Port should be a number')
+  }
   validate_string($permit_root)
   validate_string($password_authentication)
 
