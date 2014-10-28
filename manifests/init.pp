@@ -38,7 +38,6 @@ class ssh (
   class { 'ssh::service': }
 
   # declare relationships
-  Class['alkivi_base'] ->
   Class['ssh::params'] ->
   Class['ssh::install'] ->
   Class['ssh::config'] ->
