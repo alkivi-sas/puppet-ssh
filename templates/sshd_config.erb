@@ -88,9 +88,6 @@ Subsystem sftp <%= @subsystem_sftp %>
 # and ChallengeResponseAuthentication to 'no'.
 UsePAM <%= @use_pam %>
 
-VerifyReverseMapping <%= @verify_reverse_mapping %>
-
-
 # Extra configuration
 <% if @extra_configuration.size %>
 <% @extra_configuration.each do | extraLine | %>
